@@ -67,7 +67,7 @@ class StockFragment : Fragment() {
         })
 
         mDateButton = v.findViewById(R.id.stock_date) as Button
-        mDateButton.text = mStock.mDate.toString()
+        updateDate()
         mDateButton.setOnClickListener {
             val manager = fragmentManager
             var dialog = DatePickerFragment.newInstance(mStock.mDate)
@@ -89,7 +89,11 @@ class StockFragment : Fragment() {
         if (requestCode == REQUEST_DATE) {
             var date = data?.getSerializableExtra(DatePickerFragment.EXTRA_DATE) as Date
             mStock.mDate = date
-            mDateButton.text = mStock.mDate.toString()
+            updateDate()
         }
+    }
+
+    private fun updateDate() {
+        mDateButton.text = mStock.mDate.toString()
     }
 }

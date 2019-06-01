@@ -52,7 +52,6 @@ class DatePickerFragment : DialogFragment() {
         var v = LayoutInflater.from(activity).inflate(com.awwakum.android.stockportfolioktl.R.layout.dialog_date, null)
 
         mDatePicker = v.findViewById(com.awwakum.android.stockportfolioktl.R.id.dialog_date_picker)
-        // TODO проверить что дата на вызванном дэйтпиккере корректно показывается
         mDatePicker.init(year, month, day, null)
 
         return AlertDialog.Builder(activity!!)
