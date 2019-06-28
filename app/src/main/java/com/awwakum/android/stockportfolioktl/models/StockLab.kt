@@ -9,10 +9,10 @@ class StockLab private constructor(context: Context?) {
 
     init {
         mStocks = arrayListOf()
-        for (i in 0..100) {
-            var stock = Stock("Stock #" + i, (i % 2 == 0))
-            mStocks.add(stock)
-        }
+//        for (i in 0..100) {
+//            var stock = Stock("Stock #" + i, (i % 2 == 0))
+//            mStocks.add(stock)
+//        }
     }
 
     companion object {
@@ -36,6 +36,10 @@ class StockLab private constructor(context: Context?) {
 //                mCrimes.add(crime);
 //            }
 //        }
+    }
+
+    fun addStock(s: Stock) {
+       mStocks.add(s)
     }
 
     public fun getStocks(): List<Stock> {

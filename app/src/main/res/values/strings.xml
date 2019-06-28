@@ -5,4 +5,8 @@
     <string name="stock_price_label">Price</string>
     <string name="stock_bought_label">Sold</string>
     <string name="date_picker_title">Bought at:</string>
+    <string name="new_stock">New Stock</string>
+    <string name="show_subtitle">Show Subtitle</string>
+    <string name="hide_subtitle">Hide Subtitle</string>
+    <string name="subtitle_format">%1$d stocks</string>
 </resources>

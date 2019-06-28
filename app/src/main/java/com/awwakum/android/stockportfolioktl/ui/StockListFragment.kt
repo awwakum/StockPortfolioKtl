@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import com.awwakum.android.stockportfolioktl.R
 import com.awwakum.android.stockportfolioktl.StockPagerActivity
@@ -17,6 +15,11 @@ class StockListFragment : Fragment() {
 
     private lateinit var mStockRecyclerView: RecyclerView
     private var mAdapter: StockAdapter? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
@@ -30,6 +33,24 @@ class StockListFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         updateUI()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.fragment_stock_list, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.new_stock -> {
+                var stock = Stock()
+                StockLab.get(activity).addStock(stock)
+                var intent = StockPagerActivity.newIntent(activity, stock.mId)
+                startActivity(intent)
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 
     private fun updateUI() {
